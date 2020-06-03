@@ -4,23 +4,23 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --inline-vue --name ac-cart",
+    "build": "vue-cli-service build --dest dist\\wp --target wc --inline-vue --name ac-cart  & vue-cli-service build  --dest dist\\ac --target wc --no-clean --name ac-cart",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^2.6.11",
+    "core-js": "^3.6.5",
     "uglify-js": "^3.9.4",
     "vue": "^2.6.11",
     "vue-debounce": "^2.5.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.12.1",
-    "@vue/cli-plugin-eslint": "^3.12.1",
-    "@vue/cli-service": "^3.12.1",
+    "@vue/cli-plugin-babel": "^4.4.1",
+    "@vue/cli-plugin-eslint": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.11",
-    "uglify-js": "^3.9.4"
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "uglify-js": "^3.9.4",
+    "vue-template-compiler": "^2.6.11"
   }
 }
