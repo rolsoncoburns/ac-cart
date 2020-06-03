@@ -35,26 +35,6 @@
             </div>
         </article>
 </template>
-<style scoped>
-.card-product {
-    width:100%;
-}
-    .quantity-box {
-        position:relative;
-    }
-    .increment, .decrement {
-        position:absolute;
-        top:0;
-        height:100%;
-        opacity:0;
-    }
-    .decrement {
-        left:8px;
-    }
-    .increment {
-        right:8px;
-    }
-</style>
 <script>
 export default {
     name : "CartItem",
