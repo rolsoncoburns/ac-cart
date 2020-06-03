@@ -1,22 +1,39 @@
 <template>
-<div class="card card-product product-small">
-	<figure class="itemside">
-		<div class="img-padding">
-            <div class="img-wrap img-sm"><img width="50" :src="item.imageUrl + '?w=50'" ></div>
-        </div>
-		<figcaption class="align-self-center">
-			<h4 class="title"><a :href="'https://www.coburns.com/store/productdetails.aspx?itemId=' + item.itemId">{{item.itemName}}</a></h4>
-            <div class="row">
-                <div class="price h4 col-6">${{item.price}}</div>
-                <div class="form-group col-6 quantity-box">
-                <button v-on:click.prevent="decrement" class="decrement">-</button>
-                <input type="text" v-on:change.enter="change" v-model="item.quantity" class="addition small form-control">
-                <button v-on:click.prevent="increment" class="increment">+</button>
+        <article class="product-small">
+            <figure class="product-small__image img-wrap">
+                <a :href="'https://www.coburns.com/store/productdetails.aspx?itemId=' + item.itemId"><img width="50" :src="item.imageUrl + '?w=50'" ></a>
+            </figure>
+            <div class="product-small__text">
+                <h4 class="product-small__title">
+                    <a :href="'https://www.coburns.com/store/productdetails.aspx?itemId=' + item.itemId">{{item.itemName}}</a>
+                </h4>
+                <div class="row">
+                    <div class="col">
+                        <div class="product-small__price">${{item.price}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-small__quantity form-group">
+                            <label class="sr-only" for="inputQuantity">Quantity</label>
+                            <div class="input-group input-group-sm input-group--minimal">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-gray-light" type="button" v-on:click.prevent="decrement">
+                                        <span aria-hidden="true">-</span>
+                                        <span class="sr-only">Decrease Quantity</span>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control text-center" v-on:change.enter="change" v-model="item.quantity">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-gray-light" type="button" v-on:click.prevent="increment">
+                                        <span aria-hidden="true">+</span>
+                                        <span class="sr-only">Increase Quantity</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-		</figcaption>
-	</figure> 
-</div>
+        </article>
 </template>
 <style scoped>
 .card-product {
