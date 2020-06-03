@@ -60,13 +60,13 @@ export default {
     name : "CartItem",
     props: ["item"],
     methods: {
-        decrement(event){
+        decrement(){
             this.$emit("decItem", this.item);
         },
-        increment(event){
+        increment(){
             this.$emit("incItem", this.item);
         },
-        change(event){
+        change(){
             this.$emit("change", this.item);
         }
     }

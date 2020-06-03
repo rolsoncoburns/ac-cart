@@ -7,8 +7,7 @@
 
     <div class="mini-cart-contents">
       <template v-for="item in cart.items">
-        <CartItem @decItem="onDecItem" @incItem="onIncItem" @change="onChange"  :item="item" />
-        <hr>
+        <CartItem @decItem="onDecItem" @incItem="onIncItem" @change="onChange"  :item="item" :key="item.itemId" />
       </template>
     </div>
     
@@ -61,7 +60,7 @@ export default {
   mounted() {
     var self = this
     AC.cart.get(x => {
-      console.log(x.data);
+      //console.log(x.data);
       self.cart = x.data;
       self.loaded = true;
     });
