@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest dist\\wp --target lib --inline-vue --name AcCart  & vue-cli-service build  --dest dist\\ac --target lib --no-clean --name AcCart",
+    "build": "vue-cli-service build --dest dist\\wp --target lib --inline-vue --name AcCart  & vue-cli-service build --dest dist\\ac --target lib --name AcCart",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
