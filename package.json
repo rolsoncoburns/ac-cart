@@ -1,10 +1,10 @@
 {
-  "name": "ac-cart",
+  "name": "AcCart",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest dist\\wp --target wc --inline-vue --name ac-cart  & vue-cli-service build  --dest dist\\ac --target wc --no-clean --name ac-cart",
+    "build": "vue-cli-service build --dest dist\\wp --target lib --inline-vue --name AcCart  & vue-cli-service build  --dest dist\\ac --target lib --no-clean --name AcCart",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
