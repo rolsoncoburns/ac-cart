@@ -3391,12 +3391,12 @@ var AcCartvue_type_template_id_14d686fa_staticRenderFns = []
 // EXTERNAL MODULE: ./src/ac-client-api.js
 var ac_client_api = __webpack_require__("88b4");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7c6552f0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CartItem.vue?vue&type=template&id=7c2fa909&
-var CartItemvue_type_template_id_7c2fa909_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{staticClass:"product-small"},[_c('figure',{staticClass:"product-small__image img-wrap"},[_c('a',{attrs:{"href":'https://www.coburns.com/store/productdetails.aspx?itemId=' + _vm.item.itemId}},[_c('img',{attrs:{"width":"50","src":_vm.item.imageUrl + '?w=50'}})])]),_c('div',{staticClass:"product-small__text"},[_c('h4',{staticClass:"product-small__title"},[_c('a',{attrs:{"href":'https://www.coburns.com/store/productdetails.aspx?itemId=' + _vm.item.itemId}},[_vm._v(_vm._s(_vm.item.itemName))])]),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"product-small__price"},[_vm._v("$"+_vm._s(_vm.item.price))])]),_c('div',{staticClass:"col-auto"},[_c('div',{staticClass:"product-small__quantity form-group"},[_c('label',{staticClass:"sr-only",attrs:{"for":"inputQuantity"}},[_vm._v("Quantity")]),_c('div',{staticClass:"input-group input-group-sm input-group--minimal"},[_c('div',{staticClass:"input-group-prepend"},[_c('button',{staticClass:"btn btn-outline-gray-light",attrs:{"type":"button"},on:{"click":function($event){$event.preventDefault();return _vm.decrement($event)}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("-")]),_c('span',{staticClass:"sr-only"},[_vm._v("Decrease Quantity")])])]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.quantity),expression:"item.quantity"}],staticClass:"form-control text-center",attrs:{"type":"text"},domProps:{"value":(_vm.item.quantity)},on:{"change":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.change($event)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "quantity", $event.target.value)}}}),_c('div',{staticClass:"input-group-append"},[_c('button',{staticClass:"btn btn-outline-gray-light",attrs:{"type":"button"},on:{"click":function($event){$event.preventDefault();return _vm.increment($event)}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("+")]),_c('span',{staticClass:"sr-only"},[_vm._v("Increase Quantity")])])])])])])])])])}
-var CartItemvue_type_template_id_7c2fa909_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7c6552f0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CartItem.vue?vue&type=template&id=2b95cf12&
+var CartItemvue_type_template_id_2b95cf12_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('article',{staticClass:"product-small"},[_c('figure',{staticClass:"product-small__image img-wrap"},[_c('a',{attrs:{"href":'https://www.coburns.com/store/productdetails.aspx?itemId=' + _vm.item.itemId}},[_c('img',{attrs:{"width":"50","src":_vm.getPhoto(_vm.item)}})])]),_c('div',{staticClass:"product-small__text"},[_c('h4',{staticClass:"product-small__title"},[_c('a',{attrs:{"href":'https://www.coburns.com/store/productdetails.aspx?itemId=' + _vm.item.itemId}},[_vm._v(_vm._s(_vm.item.itemName))])]),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('div',{staticClass:"product-small__price"},[_vm._v("$"+_vm._s(_vm.item.price))])]),_c('div',{staticClass:"col-auto"},[_c('div',{staticClass:"product-small__quantity form-group"},[_c('label',{staticClass:"sr-only",attrs:{"for":"inputQuantity"}},[_vm._v("Quantity")]),_c('div',{staticClass:"input-group input-group-sm input-group--minimal"},[_c('div',{staticClass:"input-group-prepend"},[_c('button',{staticClass:"btn btn-outline-gray-light",attrs:{"type":"button"},on:{"click":function($event){$event.preventDefault();return _vm.decrement($event)}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("-")]),_c('span',{staticClass:"sr-only"},[_vm._v("Decrease Quantity")])])]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.quantity),expression:"item.quantity"}],staticClass:"form-control text-center",attrs:{"type":"text"},domProps:{"value":(_vm.item.quantity)},on:{"change":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.change($event)},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "quantity", $event.target.value)}}}),_c('div',{staticClass:"input-group-append"},[_c('button',{staticClass:"btn btn-outline-gray-light",attrs:{"type":"button"},on:{"click":function($event){$event.preventDefault();return _vm.increment($event)}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("+")]),_c('span',{staticClass:"sr-only"},[_vm._v("Increase Quantity")])])])])])])])])])}
+var CartItemvue_type_template_id_2b95cf12_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/CartItem.vue?vue&type=template&id=7c2fa909&
+// CONCATENATED MODULE: ./src/components/CartItem.vue?vue&type=template&id=2b95cf12&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/CartItem.vue?vue&type=script&lang=js&
 //
@@ -3440,18 +3440,19 @@ var CartItemvue_type_template_id_7c2fa909_staticRenderFns = []
   name: "CartItem",
   props: ["item"],
   methods: {
-    decrement() {
+    decrement: function decrement() {
       this.$emit("decItem", this.item);
     },
-
-    increment() {
+    increment: function increment() {
       this.$emit("incItem", this.item);
     },
-
-    change() {
+    change: function change() {
       this.$emit("change", this.item);
+    },
+    getPhoto: function getPhoto(item) {
+      var image = item.imageUrl ? item.imageUrl : "https://www.coburns.com/images/no-image.png";
+      return image + '?w=50';
     }
-
   }
 });
 // CONCATENATED MODULE: ./src/components/CartItem.vue?vue&type=script&lang=js&
@@ -3566,13 +3567,13 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   components_CartItemvue_type_script_lang_js_,
-  CartItemvue_type_template_id_7c2fa909_render,
-  CartItemvue_type_template_id_7c2fa909_staticRenderFns,
+  CartItemvue_type_template_id_2b95cf12_render,
+  CartItemvue_type_template_id_2b95cf12_staticRenderFns,
   false,
   null,
   null,
   null
-  ,true
+  
 )
 
 /* harmony default export */ var CartItem = (component.exports);
