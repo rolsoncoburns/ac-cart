@@ -1,7 +1,7 @@
 <template>
         <article class="product-small">
             <figure class="product-small__image img-wrap">
-                <a :href="'https://www.coburns.com/store/productdetails.aspx?itemId=' + item.itemId"><img width="50" :src="item.imageUrl + '?w=50'" ></a>
+                <a :href="'https://www.coburns.com/store/productdetails.aspx?itemId=' + item.itemId"><img width="50" :src="getPhoto(item)" ></a>
             </figure>
             <div class="product-small__text">
                 <h4 class="product-small__title">
@@ -48,6 +48,11 @@ export default {
         },
         change(){
             this.$emit("change", this.item);
+        },
+        getPhoto(item){
+            var image = item.imageUrl ? item.imageUrl : "https://www.coburns.com/images/no-image.png";
+
+            return image + '?w=50'
         }
     }
 }
