@@ -1,5 +1,9 @@
 # ac-cart
 
+
+Vue component for displaying AmeriCommerce (mini) shopping cart. Uses AmeriCommerce client API for getting/updating cart contents.
+
+
 ## Project setup
 ```
 npm install
