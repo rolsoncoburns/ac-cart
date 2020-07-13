@@ -34,7 +34,7 @@
 import '../ac-client-api.js';
 import CartItem from './CartItem.vue';
 import Spinner from './Spinner.vue';
-
+Vue.config.devtools = true;
 
 export default {
   name: 'AcCart',

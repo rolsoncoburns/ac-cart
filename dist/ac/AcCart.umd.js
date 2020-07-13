@@ -3381,12 +3381,12 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=06ede009&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7c6552f0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AcCart.vue?vue&type=template&id=03f34fea&
-var AcCartvue_type_template_id_03f34fea_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.cart.cartId != null)?_c('div',{staticClass:"mini-cart"},[_c('div',{staticClass:"h5 subhead mini-cart-header"},[(_vm.loading)?_c('Spinner'):_c('span',[_vm._v(_vm._s(_vm.cart.totalItemCount))]),_vm._v(" Item in Your Cart ")],1),_c('div',{staticClass:"mini-cart-contents"},[_vm._l((_vm.cart.items),function(item){return [_c('CartItem',{key:item.itemId,attrs:{"item":item},on:{"decItem":_vm.onDecItem,"incItem":_vm.onIncItem,"change":_vm.onChange}})]})],2),_c('div',{staticClass:"mini-cart-footer"},[_c('div',{staticClass:"h4 price"},[_vm._v("Subtotal: "),(_vm.loading)?_c('Spinner'):_c('span',[_vm._v("$"+_vm._s(_vm.cart.subtotal.toFixed(2)))])],1),_c('div',{staticClass:"mini-cart-footer__actions"},[_c('a',{staticClass:"btn btn-beige has-white-color",attrs:{"href":"https://www.coburns.com/store/checkout.aspx"}},[_vm._v("Proceed to Checkout")]),_c('br'),_c('a',{staticClass:"btn btn-link cart-link",attrs:{"href":"https://www.coburns.com/store/shopcart.aspx"}},[_vm._v("View Full Cart "),_c('svg',{staticClass:"icon icon-arrow",attrs:{"width":"7px","height":"10px","viewbox":"0 0 7 10","version":"1.1","xmlns":"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink"}},[_c('polyline',{attrs:{"stroke":"currentColor","stroke-width":"2","fill":"none","fill-rule":"evenodd","stroke-linecap":"round","stroke-linejoin":"round","points":"1 9 6 5 1 1"}})])])])])]):_vm._e()}
-var AcCartvue_type_template_id_03f34fea_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7c6552f0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AcCart.vue?vue&type=template&id=bf600a4c&
+var AcCartvue_type_template_id_bf600a4c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.cart.cartId != null)?_c('div',{staticClass:"mini-cart"},[_c('div',{staticClass:"h5 subhead mini-cart-header"},[(_vm.loading)?_c('Spinner'):_c('span',[_vm._v(_vm._s(_vm.cart.totalItemCount))]),_vm._v(" Item in Your Cart ")],1),_c('div',{staticClass:"mini-cart-contents"},[_vm._l((_vm.cart.items),function(item){return [_c('CartItem',{key:item.itemId,attrs:{"item":item},on:{"decItem":_vm.onDecItem,"incItem":_vm.onIncItem,"change":_vm.onChange}})]})],2),_c('div',{staticClass:"mini-cart-footer"},[_c('div',{staticClass:"h4 price"},[_vm._v("Subtotal: "),(_vm.loading)?_c('Spinner'):_c('span',[_vm._v("$"+_vm._s(_vm.cart.subtotal.toFixed(2)))])],1),_c('div',{staticClass:"mini-cart-footer__actions"},[_c('a',{staticClass:"btn btn-beige has-white-color",attrs:{"href":"https://www.coburns.com/store/checkout.aspx"}},[_vm._v("Proceed to Checkout")]),_c('br'),_c('a',{staticClass:"btn btn-link cart-link",attrs:{"href":"https://www.coburns.com/store/shopcart.aspx"}},[_vm._v("View Full Cart "),_c('svg',{staticClass:"icon icon-arrow",attrs:{"width":"7px","height":"10px","viewbox":"0 0 7 10","version":"1.1","xmlns":"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink"}},[_c('polyline',{attrs:{"stroke":"currentColor","stroke-width":"2","fill":"none","fill-rule":"evenodd","stroke-linecap":"round","stroke-linejoin":"round","points":"1 9 6 5 1 1"}})])])])])]):_vm._e()}
+var AcCartvue_type_template_id_bf600a4c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/AcCart.vue?vue&type=template&id=03f34fea&
+// CONCATENATED MODULE: ./src/components/AcCart.vue?vue&type=template&id=bf600a4c&
 
 // EXTERNAL MODULE: ./src/ac-client-api.js
 var ac_client_api = __webpack_require__("88b4");
@@ -3695,6 +3695,7 @@ var Spinner_component = normalizeComponent(
 
 
 
+Vue.config.devtools = true;
 /* harmony default export */ var AcCartvue_type_script_lang_js_ = ({
   name: 'AcCart',
   components: {
@@ -3784,8 +3785,8 @@ var Spinner_component = normalizeComponent(
 
 var AcCart_component = normalizeComponent(
   components_AcCartvue_type_script_lang_js_,
-  AcCartvue_type_template_id_03f34fea_render,
-  AcCartvue_type_template_id_03f34fea_staticRenderFns,
+  AcCartvue_type_template_id_bf600a4c_render,
+  AcCartvue_type_template_id_bf600a4c_staticRenderFns,
   false,
   null,
   null,
