@@ -1,5 +1,5 @@
 <template>
-  <div class="mini-cart">
+  <div v-if="cart.cartId != null" class="mini-cart">
       <div class="h5 subhead mini-cart-header">
       <Spinner v-if="loading" />
       <span v-else>{{cart.totalItemCount}}</span> Item in Your Cart
@@ -63,13 +63,14 @@ export default {
     AC.init({ storeDomain : "www.coburns.com"});
     AC.cart.get(x => {
       console.log(x.data);
-      self.cart.cartId = x.cartId;
-      self.cart.items = x.items;
-      self.cart.subtotal = x.subtotal;
-      self.cart.taxTotal = x.taxTotal;
-      self.cart.totalItemCount = x.totalItemCount;
-      self.cart.discountTotal = x.discountTotal;
-      self.cart.grandTotal = x.grandTotal;
+      self.cart.cartId = x.data.cartId;
+      self.cart.items = x.data.items;
+      self.cart.subtotal = x.data.subtotal;
+      self.cart.taxTotal = x.data.taxTotal;
+      self.cart.totalItemCount = x.data.totalItemCount;
+      self.cart.discountTotal = x.data.discountTotal;
+      self.cart.grandTotal = x.data.grandTotal;
+
       self.loaded = true;
 
       console.log(self);
