@@ -34,6 +34,8 @@
 import '../ac-client-api.js';
 import CartItem from './CartItem.vue';
 import Spinner from './Spinner.vue';
+
+/*eslint-disable */
 Vue.config.devtools = true;
 
 export default {
