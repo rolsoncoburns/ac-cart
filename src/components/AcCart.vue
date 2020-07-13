@@ -46,11 +46,11 @@ export default {
       cart : {
         cartId : null,
         items : [],
-        subtotal : 0,
+        subtotal : null,
         taxTotal : null,
         totalItemCount : null,
         discountTotal : null,
-        grandTotal : 0
+        grandTotal : null
       },
       loaded: false,
       loading:false,
