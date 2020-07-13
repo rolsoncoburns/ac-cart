@@ -1,5 +1,5 @@
 <template>
-  <div v-show="loaded" class="mini-cart">
+  <div v-if="loaded" class="mini-cart">
       <div class="h5 subhead mini-cart-header">
       <Spinner v-if="loading" />
       <span v-else>{{cart.totalItemCount}}</span> Item in Your Cart
@@ -35,7 +35,6 @@ import '../ac-client-api.js';
 import CartItem from './CartItem.vue';
 import Spinner from './Spinner.vue';
 
-AC.init({ storeDomain : "www.coburns.com"})
 
 export default {
   name: 'AcCart',
@@ -58,9 +57,12 @@ export default {
     };
   },
   mounted() {
-    var self = this
+    var self = this;
+    
+    /*eslint-disable */
+    AC.init({ storeDomain : "www.coburns.com"});
     AC.cart.get(x => {
-      //console.log(x.data);
+      console.log(x.data);
       self.cart = x.data;
       self.loaded = true;
     });
@@ -88,7 +90,8 @@ export default {
         clearTimeout(self.debounce)
 
       self.loading = true;
-
+      
+      /*eslint-disable */
       self.debounce = setTimeout(function() {
         self.updating = true;
         AC.cart.update({
