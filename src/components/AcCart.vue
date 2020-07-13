@@ -65,6 +65,8 @@ export default {
       console.log(x.data);
       self.cart = x.data;
       self.loaded = true;
+
+      console.log(self);
     });
   },
   methods: {
