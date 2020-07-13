@@ -2,7 +2,7 @@
   <div class="mini-cart">
       <div class="h5 subhead mini-cart-header">
       <Spinner v-if="loading" />
-      <span v-else>{{cart.totalItemCount}}</span> Item in Your Cart
+      <span v-else>{{cart.totalItemCount}}</span> Item(s) in Your Cart
       </div>
 
     <div class="mini-cart-contents">
@@ -36,7 +36,7 @@ import CartItem from './CartItem.vue';
 import Spinner from './Spinner.vue';
 
 /*eslint-disable */
-Vue.config.devtools = true;
+//Vue.config.devtools = true;
 
 export default {
   name: 'AcCart',
@@ -48,7 +48,7 @@ export default {
         items : [],
         subtotal : 99999,
         taxTotal : null,
-        totalItemCount : null,
+        totalItemCount : 0,
         discountTotal : null,
         grandTotal : 99999
       },
