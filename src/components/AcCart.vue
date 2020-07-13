@@ -56,14 +56,20 @@ export default {
       debounce: null
     };
   },
-  mounted() {
+  beforeMount() {
     var self = this;
     
     /*eslint-disable */
     AC.init({ storeDomain : "www.coburns.com"});
     AC.cart.get(x => {
       console.log(x.data);
-      self.cart = x.data;
+      self.cart.cartId = x.cartId;
+      self.cart.items = x.items;
+      self.cart.subtotal = x.subtotal;
+      self.cart.taxTotal = x.taxTotal;
+      self.cart.totalItemCount = x.totalItemCount;
+      self.cart.discountTotal = x.discountTotal;
+      self.cart.grandTotal = x.grandTotal;
       self.loaded = true;
 
       console.log(self);
