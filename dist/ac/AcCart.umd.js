@@ -96,6 +96,21 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ "00ee":
+/***/ (function(module, exports, __webpack_require__) {
+
+var wellKnownSymbol = __webpack_require__("b622");
+
+var TO_STRING_TAG = wellKnownSymbol('toStringTag');
+var test = {};
+
+test[TO_STRING_TAG] = 'z';
+
+module.exports = String(test) === '[object z]';
+
+
+/***/ }),
+
 /***/ "06cf":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -956,6 +971,51 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
 
 /***/ }),
 
+/***/ "5899":
+/***/ (function(module, exports) {
+
+// a string of all valid unicode whitespaces
+// eslint-disable-next-line max-len
+module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+
+
+/***/ }),
+
+/***/ "58a8":
+/***/ (function(module, exports, __webpack_require__) {
+
+var requireObjectCoercible = __webpack_require__("1d80");
+var whitespaces = __webpack_require__("5899");
+
+var whitespace = '[' + whitespaces + ']';
+var ltrim = RegExp('^' + whitespace + whitespace + '*');
+var rtrim = RegExp(whitespace + whitespace + '*$');
+
+// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
+var createMethod = function (TYPE) {
+  return function ($this) {
+    var string = String(requireObjectCoercible($this));
+    if (TYPE & 1) string = string.replace(ltrim, '');
+    if (TYPE & 2) string = string.replace(rtrim, '');
+    return string;
+  };
+};
+
+module.exports = {
+  // `String.prototype.{ trimLeft, trimStart }` methods
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trimstart
+  start: createMethod(1),
+  // `String.prototype.{ trimRight, trimEnd }` methods
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trimend
+  end: createMethod(2),
+  // `String.prototype.trim` method
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trim
+  trim: createMethod(3)
+};
+
+
+/***/ }),
+
 /***/ "5c6c":
 /***/ (function(module, exports) {
 
@@ -1333,11 +1393,19 @@ __webpack_require__("99af");
 
 __webpack_require__("c975");
 
+__webpack_require__("a15b");
+
 __webpack_require__("fb6a");
 
 __webpack_require__("4e82");
 
 __webpack_require__("a434");
+
+__webpack_require__("d3b7");
+
+__webpack_require__("e25e");
+
+__webpack_require__("ac1f");
 
 __webpack_require__("25f0");
 
@@ -1755,7 +1823,8 @@ __webpack_require__("1276");
     _defaults: {
       expires: -1,
       path: '/',
-      secure: false
+      secure: false,
+      samesite: 'None'
     },
 
     /**
@@ -1789,6 +1858,7 @@ __webpack_require__("1276");
         opts.expires = data.expires || opts.expires;
         opts.path = data.path || opts.path;
         opts.secure = data.secure || opts.secure;
+        opts.samesite = data.samesite || opts.samesite;
         data.domain = opts.domain;
       }
 
@@ -1821,7 +1891,7 @@ __webpack_require__("1276");
       }
 
       data = data ? AC.base64.encode(JSON.stringify(data)) : "";
-      document.cookie = [encodeURIComponent(key), '=', encodeURIComponent(data), options.expires ? ';expires=' + options.expires.toUTCString() : '', options.path ? ';path=' + options.path : '', options.domain ? ';domain=' + options.domain : '', options.secure ? ';secure' : ''].join('');
+      document.cookie = [encodeURIComponent(key), '=', encodeURIComponent(data), options.expires ? ';expires=' + options.expires.toUTCString() : '', options.path ? ';path=' + options.path : '', options.domain ? ';domain=' + options.domain : '', options.samesite ? ';samesite=' + options.samesite : '', options.secure ? ';secure' : ''].join('');
     }
   };
   /**
@@ -2688,6 +2758,32 @@ exports.BROKEN_CARET = fails(function () {
 
 /***/ }),
 
+/***/ "a15b":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__("23e7");
+var IndexedObject = __webpack_require__("44ad");
+var toIndexedObject = __webpack_require__("fc6a");
+var arrayMethodIsStrict = __webpack_require__("a640");
+
+var nativeJoin = [].join;
+
+var ES3_STRINGS = IndexedObject != Object;
+var STRICT_METHOD = arrayMethodIsStrict('join', ',');
+
+// `Array.prototype.join` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.join
+$({ target: 'Array', proto: true, forced: ES3_STRINGS || !STRICT_METHOD }, {
+  join: function join(separator) {
+    return nativeJoin.call(toIndexedObject(this), separator === undefined ? ',' : separator);
+  }
+});
+
+
+/***/ }),
+
 /***/ "a434":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2872,6 +2968,23 @@ module.exports = function (METHOD_NAME, options) {
 
 /***/ }),
 
+/***/ "b041":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var TO_STRING_TAG_SUPPORT = __webpack_require__("00ee");
+var classof = __webpack_require__("f5df");
+
+// `Object.prototype.toString` method implementation
+// https://tc39.github.io/ecma262/#sec-object.prototype.tostring
+module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
+  return '[object ' + classof(this) + ']';
+};
+
+
+/***/ }),
+
 /***/ "b622":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2913,6 +3026,27 @@ module.exports = function (input, PREFERRED_STRING) {
   if (!PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
   throw TypeError("Can't convert object to primitive value");
 };
+
+
+/***/ }),
+
+/***/ "c20d":
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__("da84");
+var trim = __webpack_require__("58a8").trim;
+var whitespaces = __webpack_require__("5899");
+
+var $parseInt = global.parseInt;
+var hex = /^[+-]?0[Xx]/;
+var FORCED = $parseInt(whitespaces + '08') !== 8 || $parseInt(whitespaces + '0x16') !== 22;
+
+// `parseInt` method
+// https://tc39.github.io/ecma262/#sec-parseint-string-radix
+module.exports = FORCED ? function parseInt(string, radix) {
+  var S = trim(String(string));
+  return $parseInt(S, (radix >>> 0) || (hex.test(S) ? 16 : 10));
+} : $parseInt;
 
 
 /***/ }),
@@ -3127,6 +3261,22 @@ exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
 
 /***/ }),
 
+/***/ "d3b7":
+/***/ (function(module, exports, __webpack_require__) {
+
+var TO_STRING_TAG_SUPPORT = __webpack_require__("00ee");
+var redefine = __webpack_require__("6eeb");
+var toString = __webpack_require__("b041");
+
+// `Object.prototype.toString` method
+// https://tc39.github.io/ecma262/#sec-object.prototype.tostring
+if (!TO_STRING_TAG_SUPPORT) {
+  redefine(Object.prototype, 'toString', toString, { unsafe: true });
+}
+
+
+/***/ }),
+
 /***/ "d784":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3281,6 +3431,21 @@ module.exports =
 
 /***/ }),
 
+/***/ "e25e":
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__("23e7");
+var parseIntImplementation = __webpack_require__("c20d");
+
+// `parseInt` method
+// https://tc39.github.io/ecma262/#sec-parseint-string-radix
+$({ global: true, forced: parseInt != parseIntImplementation }, {
+  parseInt: parseIntImplementation
+});
+
+
+/***/ }),
+
 /***/ "e893":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3325,6 +3490,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "f5df":
+/***/ (function(module, exports, __webpack_require__) {
+
+var TO_STRING_TAG_SUPPORT = __webpack_require__("00ee");
+var classofRaw = __webpack_require__("c6b6");
+var wellKnownSymbol = __webpack_require__("b622");
+
+var TO_STRING_TAG = wellKnownSymbol('toStringTag');
+// ES3 wrong here
+var CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (error) { /* empty */ }
+};
+
+// getting tag from ES6+ `Object.prototype.toString`
+module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
+  var O, tag, result;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' ? tag
+    // builtinTag case
+    : CORRECT_ARGUMENTS ? classofRaw(O)
+    // ES3 arguments fallback
+    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
+};
+
 
 /***/ }),
 
@@ -3381,12 +3579,12 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=06ede009&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7c6552f0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AcCart.vue?vue&type=template&id=01b55314&
-var AcCartvue_type_template_id_01b55314_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mini-cart"},[_c('div',{staticClass:"h5 subhead mini-cart-header"},[(_vm.loading)?_c('Spinner'):_c('span',[_vm._v(_vm._s(_vm.cart.totalItemCount))]),_vm._v(" Item(s) in Your Cart ")],1),_c('div',{staticClass:"mini-cart-contents"},[_vm._l((_vm.cart.items),function(item){return [_c('CartItem',{key:item.itemId,attrs:{"item":item},on:{"decItem":_vm.onDecItem,"incItem":_vm.onIncItem,"change":_vm.onChange}})]})],2),_c('div',{staticClass:"mini-cart-footer"},[_c('div',{staticClass:"h4 price"},[_vm._v("Subtotal: "),(_vm.loading)?_c('Spinner'):_c('span',[_vm._v("$"+_vm._s(_vm.cart.subtotal.toFixed(2)))])],1),_c('div',{staticClass:"mini-cart-footer__actions"},[_c('a',{staticClass:"btn btn-beige has-white-color",attrs:{"href":"https://www.coburns.com/store/checkout.aspx"}},[_vm._v("Proceed to Checkout")]),_c('br'),_c('a',{staticClass:"btn btn-link cart-link",attrs:{"href":"https://www.coburns.com/store/shopcart.aspx"}},[_vm._v("View Full Cart "),_c('svg',{staticClass:"icon icon-arrow",attrs:{"width":"7px","height":"10px","viewbox":"0 0 7 10","version":"1.1","xmlns":"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink"}},[_c('polyline',{attrs:{"stroke":"currentColor","stroke-width":"2","fill":"none","fill-rule":"evenodd","stroke-linecap":"round","stroke-linejoin":"round","points":"1 9 6 5 1 1"}})])])])])])}
-var AcCartvue_type_template_id_01b55314_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7c6552f0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AcCart.vue?vue&type=template&id=3c5d3f32&
+var AcCartvue_type_template_id_3c5d3f32_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mini-cart"},[_c('div',{staticClass:"h5 subhead mini-cart-header"},[(_vm.loading)?_c('Spinner'):_c('span',[_vm._v(_vm._s(_vm.cart.totalItemCount))]),_vm._v(" Item(s) in Your Cart ")],1),_c('div',{staticClass:"mini-cart-contents"},[_vm._l((_vm.cart.items),function(item){return [_c('CartItem',{key:item.itemId,attrs:{"item":item},on:{"decItem":_vm.onDecItem,"incItem":_vm.onIncItem,"change":_vm.onChange}})]})],2),_c('div',{staticClass:"mini-cart-footer"},[_c('div',{staticClass:"h4 price"},[_vm._v("Subtotal: "),(_vm.loading)?_c('Spinner'):_c('span',[_vm._v("$"+_vm._s(_vm.cart.subtotal.toFixed(2)))])],1),_c('div',{staticClass:"mini-cart-footer__actions"},[_c('a',{staticClass:"btn btn-beige has-white-color",attrs:{"href":"https://www.coburns.com/store/checkout.aspx"}},[_vm._v("Proceed to Checkout")]),_c('br'),_c('a',{staticClass:"btn btn-link cart-link",attrs:{"href":"https://www.coburns.com/store/shopcart.aspx"}},[_vm._v("View Full Cart "),_c('svg',{staticClass:"icon icon-arrow",attrs:{"width":"7px","height":"10px","viewbox":"0 0 7 10","version":"1.1","xmlns":"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink"}},[_c('polyline',{attrs:{"stroke":"currentColor","stroke-width":"2","fill":"none","fill-rule":"evenodd","stroke-linecap":"round","stroke-linejoin":"round","points":"1 9 6 5 1 1"}})])])])])])}
+var AcCartvue_type_template_id_3c5d3f32_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/AcCart.vue?vue&type=template&id=01b55314&
+// CONCATENATED MODULE: ./src/components/AcCart.vue?vue&type=template&id=3c5d3f32&
 
 // EXTERNAL MODULE: ./src/ac-client-api.js
 var ac_client_api = __webpack_require__("88b4");
@@ -3721,7 +3919,7 @@ var Spinner_component = normalizeComponent(
       debounce: null
     };
   },
-  beforeMount: function beforeMount() {
+  mounted: function mounted() {
     var self = this;
     /*eslint-disable */
 
@@ -3787,8 +3985,8 @@ var Spinner_component = normalizeComponent(
 
 var AcCart_component = normalizeComponent(
   components_AcCartvue_type_script_lang_js_,
-  AcCartvue_type_template_id_01b55314_render,
-  AcCartvue_type_template_id_01b55314_staticRenderFns,
+  AcCartvue_type_template_id_3c5d3f32_render,
+  AcCartvue_type_template_id_3c5d3f32_staticRenderFns,
   false,
   null,
   null,

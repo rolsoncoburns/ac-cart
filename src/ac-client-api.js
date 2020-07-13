@@ -388,7 +388,8 @@
       _defaults: {
         expires:  -1,
         path:     '/',
-        secure:   false
+        secure:   false,
+        samesite: 'None'
       },
     
       /**
@@ -422,6 +423,7 @@
           opts.expires  = data.expires || opts.expires;
           opts.path     = data.path    || opts.path;
           opts.secure   = data.secure  || opts.secure;
+          opts.samesite   = data.samesite  || opts.samesite;
     
           data.domain = opts.domain;
         }
@@ -460,6 +462,7 @@
           options.expires  ? ';expires=' + options.expires.toUTCString() : '',
           options.path     ? ';path='    + options.path : '',
           options.domain   ? ';domain='  + options.domain : '',
+          options.samesite   ? ';samesite='  + options.samesite : '',
           options.secure   ? ';secure' : ''
         ].join('');
       }

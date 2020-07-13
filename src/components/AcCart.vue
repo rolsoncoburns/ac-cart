@@ -58,7 +58,7 @@ export default {
       debounce: null
     };
   },
-  beforeMount() {
+  mounted() {
     var self = this;
     
     /*eslint-disable */
