@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded" class="mini-cart">
+  <div class="mini-cart">
       <div class="h5 subhead mini-cart-header">
       <Spinner v-if="loading" />
       <span v-else>{{cart.totalItemCount}}</span> Item in Your Cart
