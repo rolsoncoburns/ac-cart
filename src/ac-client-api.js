@@ -388,7 +388,7 @@
       _defaults: {
         expires:  -1,
         path:     '/',
-        secure:   false,
+        secure:   true,
         samesite: 'None'
       },
     
