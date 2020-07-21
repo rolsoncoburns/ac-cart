@@ -59,12 +59,12 @@
       </li>
     </ul>
     <div
-      class="modal"
+      class="modal fade"
       id="MiniCart"
       tabindex="-1"
       role="dialog"
       aria-labelledby="MiniCart"
-      style="padding-right: 17px; display: block;"
+      aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
