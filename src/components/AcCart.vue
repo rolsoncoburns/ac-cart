@@ -59,7 +59,7 @@
       </li>
     </ul>
     <div
-      class="modal fade"
+      class="modal fade hide"
       id="MiniCart"
       tabindex="-1"
       role="dialog"
