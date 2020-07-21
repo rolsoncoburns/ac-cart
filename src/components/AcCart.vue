@@ -31,7 +31,12 @@
               d="M16,16c4,0,7.3-3.3,7.3-7.3S20,1.5,16,1.5S8.7,4.7,8.7,8.7S12,16,16,16z M16,18.9c-5.3,0-16,2.6-16,7.8v3.9h32v-3.9 C32,21.5,21.3,18.9,16,18.9z"
             />
           </svg>
-          Hi {{ customer }}
+          <template v-if="!customer">
+            Login
+          </template>
+          <template v-else>
+            Hi {{ customer }}
+          </template>
         </a>
       </li>
       <li class="nav-item">
