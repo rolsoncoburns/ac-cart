@@ -35,7 +35,7 @@
             Login
           </template>
           <template v-else>
-            Hi {{ customer }}
+            Hi, {{ customer }}
           </template>
         </a>
       </li>
@@ -181,11 +181,11 @@ export default {
     AC.init({ storeDomain: "www.coburns.com" });
     AC.customer.get(function(response) {
       if (response.data) {
-        self.customer = ", " + response.data.firstName;
+        self.customer = response.data.firstName;
       }
     });
     AC.cart.get(x => {
-      console.log(x.data);
+      //console.log(x.data);
       self.cart.cartId = x.data.cartId;
       self.cart.items = x.data.items;
       self.cart.subtotal = x.data.subtotal;
@@ -196,7 +196,7 @@ export default {
 
       self.loaded = true;
 
-      console.log(self);
+      //console.log(self);
     });
   },
   methods: {
