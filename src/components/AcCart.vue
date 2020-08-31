@@ -106,12 +106,12 @@
                 </div>
                 <div class="mini-cart-footer__actions">
                   <a
-                    href="https://www.coburns.com/store/checkout.aspx"
+                    href="https://shopcoburns.americommerce.com/store/checkout.aspx"
                     class="btn btn-beige has-white-color"
                   >Proceed to Checkout</a>
                   <br />
                   <a
-                    href="https://www.coburns.com/store/shopcart.aspx"
+                    href="https://shopcoburns.americommerce.com//store/shopcart.aspx"
                     class="btn btn-link cart-link"
                   >
                     View Full Cart
@@ -178,7 +178,7 @@ export default {
     var self = this;
 
     /*eslint-disable */
-    AC.init({ storeDomain: "www.coburns.com" });
+    AC.init({ storeDomain: "shopcoburns.americommerce.com" });
     AC.customer.get(function(response) {
       if (response.data) {
         self.customer = response.data.firstName;
