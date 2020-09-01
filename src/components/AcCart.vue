@@ -18,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="https://coburns.com/store/myaccount.aspx" class="nav-link">
+        <a href="https://shopcoburns.americommerce.com/store/myaccount.aspx" class="nav-link">
           <svg
             class="icon icon-person"
             viewBox="0 0 32 32"
