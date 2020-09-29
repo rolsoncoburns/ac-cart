@@ -83,7 +83,7 @@
               <div class="h5 subhead mini-cart-header">
                 <Spinner v-if="loading" />
                 <span v-else>{{cart.totalItemCount}}</span> 
-                <span v-if="cart.totalItemCount == 1">Item</span><span v-else>Items</span> in Your Cart
+                <span v-if="cart.totalItemCount == 1"> Item</span><span v-else> Items</span> in Your Cart
               </div>
 
               <div class="mini-cart-contents">
